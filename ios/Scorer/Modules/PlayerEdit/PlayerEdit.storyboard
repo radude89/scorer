@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ebf-dg-Q7W">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player Edit View Controller-->
+        <scene sceneID="gDJ-by-k0q">
+            <objects>
+                <viewController id="ebf-dg-Q7W" customClass="PlayerEditViewController" customModule="Scorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R5h-Dc-vbN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RxV-8w-kBc">
+                                <rect key="frame" x="20" y="89" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="vyb-c8-Udh">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemSelectionCellIdentifier" id="flV-Ph-2oH">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="flV-Ph-2oH" id="22m-Ot-F7b">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ebf-dg-Q7W" id="bqO-dH-m14"/>
+                                    <outlet property="delegate" destination="ebf-dg-Q7W" id="IIZ-0D-jW5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RxV-8w-kBc" firstAttribute="top" secondItem="dzg-XH-89p" secondAttribute="top" constant="45" id="Cpg-jY-j2y"/>
+                            <constraint firstItem="dzg-XH-89p" firstAttribute="trailing" secondItem="RxV-8w-kBc" secondAttribute="trailing" constant="20" id="Xh3-aK-C1A"/>
+                            <constraint firstItem="vyb-c8-Udh" firstAttribute="top" secondItem="dzg-XH-89p" secondAttribute="top" id="aHG-5W-XqG"/>
+                            <constraint firstAttribute="bottom" secondItem="vyb-c8-Udh" secondAttribute="bottom" id="bFL-mo-cY3"/>
+                            <constraint firstItem="vyb-c8-Udh" firstAttribute="trailing" secondItem="dzg-XH-89p" secondAttribute="trailing" id="pW3-U7-WgH"/>
+                            <constraint firstItem="vyb-c8-Udh" firstAttribute="leading" secondItem="dzg-XH-89p" secondAttribute="leading" id="quf-Gd-S2L"/>
+                            <constraint firstItem="RxV-8w-kBc" firstAttribute="leading" secondItem="dzg-XH-89p" secondAttribute="leading" constant="20" id="x3k-a0-mop"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dzg-XH-89p"/>
+                    </view>
+                    <connections>
+                        <outlet property="playerEditTextField" destination="RxV-8w-kBc" id="P84-Kd-RVH"/>
+                        <outlet property="playerTableView" destination="vyb-c8-Udh" id="Gfx-rl-dlP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbK-W7-KAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909.5999999999999" y="844.58128078817742"/>
+        </scene>
+    </scenes>
+</document>

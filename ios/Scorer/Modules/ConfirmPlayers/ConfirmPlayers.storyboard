@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dcu-1F-jdz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Confirm Players View Controller-->
+        <scene sceneID="rDf-6E-21e">
+            <objects>
+                <viewController id="Dcu-1F-jdz" customClass="ConfirmPlayersViewController" customModule="Scorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2dp-ep-dyr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="423-AT-ojY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="773"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PlayerChooseTableViewCellId" id="ntQ-WQ-4An">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ntQ-WQ-4An" id="EsI-MQ-m3R">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dcu-1F-jdz" id="I5N-Fd-DlA"/>
+                                    <outlet property="delegate" destination="Dcu-1F-jdz" id="jnh-h5-Jz7"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tC2-iJ-Drv">
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1W5-ka-xt5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Wod-zZ-NIu"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="vmf-sb-7p6"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZw-Nc-Yql">
+                                        <rect key="frame" x="164.5" y="25" width="85" height="30"/>
+                                        <state key="normal" title="Start Gather"/>
+                                        <connections>
+                                            <action selector="startGather:" destination="Dcu-1F-jdz" eventType="touchUpInside" id="RSR-93-S1p"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="1W5-ka-xt5" firstAttribute="top" secondItem="tC2-iJ-Drv" secondAttribute="top" id="2DM-TW-Ky8"/>
+                                    <constraint firstItem="1W5-ka-xt5" firstAttribute="leading" secondItem="tC2-iJ-Drv" secondAttribute="leading" id="4Kp-ha-BuX"/>
+                                    <constraint firstItem="PZw-Nc-Yql" firstAttribute="centerX" secondItem="tC2-iJ-Drv" secondAttribute="centerX" id="5LZ-GC-x8O"/>
+                                    <constraint firstItem="PZw-Nc-Yql" firstAttribute="centerY" secondItem="tC2-iJ-Drv" secondAttribute="centerY" id="9ab-Vw-051"/>
+                                    <constraint firstAttribute="trailing" secondItem="1W5-ka-xt5" secondAttribute="trailing" id="bxM-Ch-NCK"/>
+                                    <constraint firstAttribute="height" constant="80" id="hX4-UI-dua"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tC2-iJ-Drv" firstAttribute="top" secondItem="423-AT-ojY" secondAttribute="bottom" constant="-1" id="2wp-z6-0bv"/>
+                            <constraint firstItem="tC2-iJ-Drv" firstAttribute="leading" secondItem="H0L-1e-NUl" secondAttribute="leading" id="8gj-Ty-crc"/>
+                            <constraint firstItem="423-AT-ojY" firstAttribute="leading" secondItem="H0L-1e-NUl" secondAttribute="leading" id="MrL-A5-Slz"/>
+                            <constraint firstItem="tC2-iJ-Drv" firstAttribute="trailing" secondItem="H0L-1e-NUl" secondAttribute="trailing" id="ZPl-GF-NQW"/>
+                            <constraint firstAttribute="bottom" secondItem="tC2-iJ-Drv" secondAttribute="bottom" id="fN2-me-hhA"/>
+                            <constraint firstItem="423-AT-ojY" firstAttribute="top" secondItem="H0L-1e-NUl" secondAttribute="top" id="pEa-O9-WSL"/>
+                            <constraint firstItem="423-AT-ojY" firstAttribute="trailing" secondItem="H0L-1e-NUl" secondAttribute="trailing" id="q4L-9m-81X"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H0L-1e-NUl"/>
+                    </view>
+                    <connections>
+                        <outlet property="playerTableView" destination="423-AT-ojY" id="tpN-4e-EQe"/>
+                        <outlet property="startGatherButton" destination="PZw-Nc-Yql" id="JiM-Z7-lwT"/>
+                        <segue destination="9n8-MF-3xl" kind="show" identifier="startGather" id="sIX-xr-S2k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AHj-Hd-nDn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909.5999999999999" y="136.69950738916256"/>
+        </scene>
+        <!--Gather-->
+        <scene sceneID="iiV-yv-kJ1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Gather" id="9n8-MF-3xl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ExO-vU-lEc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4D-JW-p2v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="137"/>
+        </scene>
+    </scenes>
+</document>
