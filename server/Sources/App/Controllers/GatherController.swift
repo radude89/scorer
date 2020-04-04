@@ -7,6 +7,7 @@
 
 import Vapor
 import ScorerFoundation
+import Files
 
 struct GatherController: RouteCollection {
     func boot(router: Router) throws {
@@ -80,6 +81,10 @@ struct GatherController: RouteCollection {
             
             return gather
         }
+    }
+    
+    func exportGather() {
+        
     }
     
 }

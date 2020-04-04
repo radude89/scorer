@@ -28,8 +28,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     // Configure migrations
     var migrations = MigrationConfig()
-    migrations.add(model: Player.self, database: .sqlite)
-    migrations.add(model: Gather.self, database: .sqlite)
-    migrations.add(model: PlayerGatherPivot.self, database: .sqlite)
+    migrations.add(model: Player.self, database: DatabaseIdentifier<Player.Database>.sqlite)
+    migrations.add(model: Gather.self, database: DatabaseIdentifier<Gather.Database>.sqlite)
+    migrations.add(model: PlayerGatherPivot.self, database: DatabaseIdentifier<PlayerGatherPivot.Database>.sqlite)
     services.register(migrations)
 }
