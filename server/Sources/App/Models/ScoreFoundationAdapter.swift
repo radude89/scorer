@@ -14,24 +14,25 @@ extension Gather: Content {}
 extension Gather: Parameter {}
 extension Gather: Migration {}
 
+extension Player: SQLiteModel {}
+extension Player: Content {}
+extension Player: Parameter {}
+extension Player: Migration {}
+
+extension PlayerTeam: Content {}
+
+extension PlayerSkill: ReflectionDecodable {}
+extension PlayerPosition: ReflectionDecodable {}
+extension TeamSection: ReflectionDecodable {}
+
 extension Gather {
     var players: Siblings<Gather, Player, PlayerGatherPivot> {
         return siblings()
     }
 }
 
-extension Player: SQLiteModel {}
-extension Player: Content {}
-extension Player: Parameter {}
-extension Player: Migration {}
-
-extension PlayerSkill: ReflectionDecodable {}
-extension PlayerPosition: ReflectionDecodable {}
-
 extension Player {
     var gathers: Siblings<Player, Gather, PlayerGatherPivot> {
         return siblings()
     }
 }
-
-extension TeamSection: ReflectionDecodable {}

@@ -58,7 +58,8 @@ final class ConfirmPlayersViewController: UIViewController {
     }
     
     @IBAction private func startGather(_ sender: Any) {
-        initiateStartGather()
+//        initiateStartGather()
+        startGatherBFF()
     }
 
 }
@@ -129,6 +130,19 @@ extension ConfirmPlayersViewController {
     
     private func handleSuccessfulStartGather() {
         performSegue(withIdentifier: SegueIdentifier.gather.rawValue, sender: nil)
+    }
+    
+    private func startGatherBFF() {
+        StartGatherService().startGather(with: playerTeamArray) { [weak self] gatherUUID in
+            DispatchQueue.main.async {
+                if let gatherUUID = gatherUUID {
+                    self?.gatherUUID = gatherUUID
+                    self?.handleSuccessfulStartGather()
+                } else {
+                    self?.handleError(title: "Error", message: "Something happened, please try again.")
+                }
+            }
+        }
     }
     
     private func initiateStartGather() {

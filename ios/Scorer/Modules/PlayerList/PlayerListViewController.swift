@@ -20,10 +20,7 @@ final class PlayerListViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var playerTableView: UITableView!
     @IBOutlet weak var bottomActionButton: UIButton!
-    
-    private let rightBarButtonItem: UIBarButtonItem = {
-        UIBarButtonItem(title: "Select", style: .plain, target: self, action: #selector(selectPlayers))
-    }()
+    private var barButtonItem: UIBarButtonItem!
     
     private var viewState: PlayerListViewState = .list
     private let playersService = StandardNetworkService(resourcePath: "/api/players")
@@ -57,10 +54,11 @@ final class PlayerListViewController: UIViewController {
     }
     
     private func setupBarButtonItem() {
-        navigationItem.rightBarButtonItem = rightBarButtonItem
-        rightBarButtonItem.isEnabled = false
+        barButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self, action: #selector(selectPlayers))
+        navigationItem.rightBarButtonItem = barButtonItem
+        barButtonItem.isEnabled = false
     }
-        
+
     // MARK: - Load data
     func loadPlayers() {
         playersService.get { [weak self] (result: Result<[Player], Error>) in
@@ -82,12 +80,8 @@ final class PlayerListViewController: UIViewController {
     }
     
     private func handleLoadPlayersSuccessfulResponse() {
-        rightBarButtonItem.isEnabled = !players.isEmpty
+        barButtonItem.isEnabled = !players.isEmpty
         playerTableView.reloadData()
-    }
-    
-    private func exportGathers(_ gathers: [Gather]) {
-        
     }
     
     // MARK: - Selectors
@@ -96,15 +90,14 @@ final class PlayerListViewController: UIViewController {
     }
     
     @IBAction private func exportGathers(_ sender: Any) {
-        let gatherService = StandardNetworkService(resourcePath: "/api/gathers")
-        gatherService.get { [weak self] (result: Result<[Gather], Error>) in
+        ExportService().exportGathers { [weak self] gathersExported in
+            guard let self = self else { return }
+            
             DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    self?.handleError(title: "Error", message: String(describing: error))
-                    
-                case .success(let gathers):
-                    self?.exportGathers(gathers)
+                if gathersExported {
+                    AlertHelper.present(in: self, title: "Gathers exported", message: "Go check out your website. We have refreshed the list of gathers.")
+                } else {
+                    self.handleError(title: "Error", message: "Something went wrong.")
                 }
             }
         }
@@ -236,7 +229,7 @@ extension PlayerListViewController: PlayerListTogglable {
     func toggleViewState() {
         viewState.toggle()
         setupTitle()
-        rightBarButtonItem.title = viewState == .selection ? "Cancel" : "Select"
+        barButtonItem.title = viewState == .selection ? "Cancel" : "Select"
         bottomActionButton.isEnabled = actionButtonIsEnabled
         playerTableView.reloadData()
     }

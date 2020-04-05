@@ -19,7 +19,7 @@ struct GatherController: RouteCollection {
         gathersRoute.delete(Gather.parameter, use: deleteHandler)
         gathersRoute.post(Gather.parameter, "players", Player.parameter, use: addPlayerHandler)
         gathersRoute.get(Gather.parameter, "players", use: getPlayersHandler)
-        gathersRoute.post([PlayerTeamRequestData].self, at: "start", use: startGather)
+        gathersRoute.post("export", use: exportGathersHandler)
     }
     
     func createHandler(_ req: Request, gather: Gather) throws -> Future<Gather> {
@@ -43,7 +43,7 @@ struct GatherController: RouteCollection {
             if let winnerTeam = updatedGather.winnerTeam {
                 gather.winnerTeam = winnerTeam
             }
-                        
+            
             return gather.save(on: req)
         }
     }
@@ -71,20 +71,50 @@ struct GatherController: RouteCollection {
         }
     }
     
-    func startGather(_ req: Request, playerTeams: [PlayerTeamRequestData]) throws -> Future<Gather> {
-        return Gather().save(on: req).map { gather in
+    func exportGathersHandler(_ req: Request) throws -> Future<HTTPStatus> {
+        return Gather.query(on: req).all().map { gathers in
+            let folder = try Folder(path: "/Users/rdan/Projects/scorer/site/Content")
+            let gathersFolder = try folder.createSubfolder(named: "gathers")
             
-            try playerTeams.forEach {
-                let pivot = try PlayerGatherPivot(playerId: $0.playerID, gatherId: gather.requireID(), team: $0.team.teamDescription)
-                _ = pivot.save(on: req)
+            let file = try folder.createFile(named: "index.md")
+            try file.write("# WELCOME TO SCORER")
+            
+            try gathers.forEach { gather in
+                
+                let gatherUUID = gather.id!.uuidString
+                let gatherFile = try gathersFolder.createFile(named: "gather-\(gatherUUID).md")
+                
+                try gatherFile.write(
+                    """
+                    ---
+                    tags: \(gather.winnerTeam!)
+                    ---
+                    
+                    # Gather \(gatherUUID)
+                    
+                    ## Result
+                    
+                    Score was: **\(gather.score ?? "-")**, and the winner was: **\(gather.winnerTeam ?? "None")**
+                    
+                    ## Players
+                    
+                    """
+                )
+                
+                _ = try gather.players.query(on: req).all().map { players in
+                    try players.forEach { player in
+                        try gatherFile.append(
+                            """
+                            Name: \(player.name)\n
+                            Position: \(player.preferredPosition?.rawValue.capitalized ?? "Whatever")\n
+                            Favourite team: \(player.favouriteTeam ?? "None")\n
+                            
+                            """
+                        )
+                    }
+                }
             }
-            
-            return gather
-        }
-    }
-    
-    func exportGather() {
-        
+        }.transform(to: HTTPStatus.ok)
     }
     
 }

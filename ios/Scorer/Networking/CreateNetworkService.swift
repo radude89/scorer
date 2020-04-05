@@ -41,10 +41,10 @@ extension NetworkService {
     }
 }
 
-private struct UUIDModel: Decodable {
+struct UUIDModel: Decodable {
     let id: UUID
 }
 
-private struct IntIDModel: Decodable {
+struct IntIDModel: Decodable {
     let id: Int
 }

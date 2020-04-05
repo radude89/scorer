@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F7017DDE240F9288005005CA /* PlayerTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7017DDD240F9288005005CA /* PlayerTeam.swift */; };
 		F71EA1512410BCF7003BB1C3 /* ScorerFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = F71EA1502410BCF7003BB1C3 /* ScorerFoundation */; };
 		F72350D6240CDF9100704550 /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72350D5240CDF9100704550 /* PlayerListViewController.swift */; };
 		F72350DB240E082400704550 /* PlayerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72350DA240E082400704550 /* PlayerViewState.swift */; };
@@ -39,6 +38,8 @@
 		F739B312240F58E100FA0C0E /* GatherTimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F739B311240F58E100FA0C0E /* GatherTimeHandler.swift */; };
 		F739B314240F5EDD00FA0C0E /* Gather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F739B313240F5EDD00FA0C0E /* Gather.storyboard */; };
 		F752FA1A2410CD1C0030AA04 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752FA192410CD1C0030AA04 /* DateExtensions.swift */; };
+		F76103CB2439B9270084B4A0 /* StartGatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76103CA2439B9270084B4A0 /* StartGatherService.swift */; };
+		F76103CD2439D8790084B4A0 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76103CC2439D8790084B4A0 /* ExportService.swift */; };
 		F77623912410DB5900D7AC62 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = F77623902410DB5900D7AC62 /* Files */; };
 		F7F89BEF240CDCD3002D0042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F89BEE240CDCD3002D0042 /* AppDelegate.swift */; };
 		F7F89BF1240CDCD3002D0042 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F89BF0240CDCD3002D0042 /* SceneDelegate.swift */; };
@@ -47,7 +48,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F7017DDD240F9288005005CA /* PlayerTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTeam.swift; sourceTree = "<group>"; };
 		F71EA14E2410BCC9003BB1C3 /* ScorerFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ScorerFoundation; sourceTree = "<group>"; };
 		F72350D5240CDF9100704550 /* PlayerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		F72350DA240E082400704550 /* PlayerViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewState.swift; sourceTree = "<group>"; };
@@ -79,6 +79,8 @@
 		F739B311240F58E100FA0C0E /* GatherTimeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatherTimeHandler.swift; sourceTree = "<group>"; };
 		F739B313240F5EDD00FA0C0E /* Gather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gather.storyboard; sourceTree = "<group>"; };
 		F752FA192410CD1C0030AA04 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		F76103CA2439B9270084B4A0 /* StartGatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGatherService.swift; sourceTree = "<group>"; };
+		F76103CC2439D8790084B4A0 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		F7F89BEB240CDCD3002D0042 /* Scorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F89BEE240CDCD3002D0042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7F89BF0240CDCD3002D0042 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,8 @@
 				F72350ED240E0F7E00704550 /* DeleteNetworkService.swift */,
 				F72350EC240E0F7E00704550 /* UpdateNetworkService.swift */,
 				F7235104240E1EA000704550 /* AddPlayerToGatherService.swift */,
+				F76103CA2439B9270084B4A0 /* StartGatherService.swift */,
+				F76103CC2439D8790084B4A0 /* ExportService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -191,7 +195,6 @@
 			children = (
 				F7235100240E17EF00704550 /* ConfirmPlayersViewController.swift */,
 				F7235359240E30AD00704550 /* ConfirmPlayers.storyboard */,
-				F7017DDD240F9288005005CA /* PlayerTeam.swift */,
 			);
 			path = ConfirmPlayers;
 			sourceTree = "<group>";
@@ -334,7 +337,7 @@
 				F72350F0240E0F7E00704550 /* DeleteNetworkService.swift in Sources */,
 				F72350E8240E0EC400704550 /* NetworkService.swift in Sources */,
 				F7235354240E28BA00704550 /* PlayerEditViewController.swift in Sources */,
-				F7017DDE240F9288005005CA /* PlayerTeam.swift in Sources */,
+				F76103CB2439B9270084B4A0 /* StartGatherService.swift in Sources */,
 				F72350DD240E09FB00704550 /* PlayerTableViewCell.swift in Sources */,
 				F72E7054240F573100A67B7D /* GatherViewController.swift in Sources */,
 				F72350E3240E0E8000704550 /* Endpoint.swift in Sources */,
@@ -358,6 +361,7 @@
 				F72350FA240E138600704550 /* PlayerSection.swift in Sources */,
 				F72350DB240E082400704550 /* PlayerViewState.swift in Sources */,
 				F72350EF240E0F7E00704550 /* UpdateNetworkService.swift in Sources */,
+				F76103CD2439D8790084B4A0 /* ExportService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
