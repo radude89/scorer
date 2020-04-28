@@ -133,6 +133,7 @@ extension ConfirmPlayersViewController {
     }
     
     private func startGatherBFF() {
+        playerTeamArray.forEach { $0.player.lastUpdated = nil }
         StartGatherService().startGather(with: playerTeamArray) { [weak self] gatherUUID in
             DispatchQueue.main.async {
                 if let gatherUUID = gatherUUID {

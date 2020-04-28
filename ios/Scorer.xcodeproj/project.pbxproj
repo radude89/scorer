@@ -40,7 +40,7 @@
 		F752FA1A2410CD1C0030AA04 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752FA192410CD1C0030AA04 /* DateExtensions.swift */; };
 		F76103CB2439B9270084B4A0 /* StartGatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76103CA2439B9270084B4A0 /* StartGatherService.swift */; };
 		F76103CD2439D8790084B4A0 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76103CC2439D8790084B4A0 /* ExportService.swift */; };
-		F77623912410DB5900D7AC62 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = F77623902410DB5900D7AC62 /* Files */; };
+		F7C43B54243B48F30042ED88 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = F7C43B53243B48F30042ED88 /* Files */; };
 		F7F89BEF240CDCD3002D0042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F89BEE240CDCD3002D0042 /* AppDelegate.swift */; };
 		F7F89BF1240CDCD3002D0042 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F89BF0240CDCD3002D0042 /* SceneDelegate.swift */; };
 		F7F89BF8240CDCD3002D0042 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7F89BF7240CDCD3002D0042 /* Assets.xcassets */; };
@@ -81,7 +81,7 @@
 		F752FA192410CD1C0030AA04 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		F76103CA2439B9270084B4A0 /* StartGatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGatherService.swift; sourceTree = "<group>"; };
 		F76103CC2439D8790084B4A0 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
-		F7F89BEB240CDCD3002D0042 /* Scorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F89BEB240CDCD3002D0042 /* Scorer-final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scorer-final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F89BEE240CDCD3002D0042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7F89BF0240CDCD3002D0042 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F7F89BF7240CDCD3002D0042 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F77623912410DB5900D7AC62 /* Files in Frameworks */,
+				F7C43B54243B48F30042ED88 /* Files in Frameworks */,
 				F71EA1512410BCF7003BB1C3 /* ScorerFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,7 +234,7 @@
 		F7F89BEC240CDCD3002D0042 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F7F89BEB240CDCD3002D0042 /* Scorer.app */,
+				F7F89BEB240CDCD3002D0042 /* Scorer-final.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,9 +254,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F7F89BEA240CDCD3002D0042 /* Scorer */ = {
+		F7F89BEA240CDCD3002D0042 /* Scorer-final */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7F89BFF240CDCD3002D0042 /* Build configuration list for PBXNativeTarget "Scorer" */;
+			buildConfigurationList = F7F89BFF240CDCD3002D0042 /* Build configuration list for PBXNativeTarget "Scorer-final" */;
 			buildPhases = (
 				F7F89BE7240CDCD3002D0042 /* Sources */,
 				F7F89BE8240CDCD3002D0042 /* Frameworks */,
@@ -266,13 +266,13 @@
 			);
 			dependencies = (
 			);
-			name = Scorer;
+			name = "Scorer-final";
 			packageProductDependencies = (
 				F71EA1502410BCF7003BB1C3 /* ScorerFoundation */,
-				F77623902410DB5900D7AC62 /* Files */,
+				F7C43B53243B48F30042ED88 /* Files */,
 			);
 			productName = Scorer;
-			productReference = F7F89BEB240CDCD3002D0042 /* Scorer.app */;
+			productReference = F7F89BEB240CDCD3002D0042 /* Scorer-final.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -306,7 +306,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F7F89BEA240CDCD3002D0042 /* Scorer */,
+				F7F89BEA240CDCD3002D0042 /* Scorer-final */,
 			);
 		};
 /* End PBXProject section */
@@ -504,7 +504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.Scorer;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rdan.Scorer-final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -522,7 +522,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.Scorer;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rdan.Scorer-final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -541,7 +541,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7F89BFF240CDCD3002D0042 /* Build configuration list for PBXNativeTarget "Scorer" */ = {
+		F7F89BFF240CDCD3002D0042 /* Build configuration list for PBXNativeTarget "Scorer-final" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7F89C00240CDCD3002D0042 /* Debug */,
@@ -568,7 +568,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ScorerFoundation;
 		};
-		F77623902410DB5900D7AC62 /* Files */ = {
+		F7C43B53243B48F30042ED88 /* Files */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F776238F2410DB5900D7AC62 /* XCRemoteSwiftPackageReference "Files" */;
 			productName = Files;
